@@ -9,6 +9,10 @@ from collections import Counter
 import os
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def extract_requirements_from_text(text):
     """Extract requirements from custom job description"""
@@ -76,7 +80,8 @@ def display_gauge_chart(score):
 def load_job_data():
     """Load preprocessed job data"""
     try:
-        file_path = "/Users/likhitayerra/STREAM/processed_jobs.xlsx"
+        # Use relative path instead of absolute path
+        file_path = "processed_jobs.xlsx"  # Ensure this file is in the same directory as your script
         if not os.path.exists(file_path):
             st.error(f"File not found at {file_path}")
             return None
@@ -443,7 +448,7 @@ def main():
             with st.spinner("Analyzing your resume..."):
                 resume_requirements = extract_skills_from_resume(
                     resume_file,
-                    "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"
+                    os.getenv("OPENAI_API_KEY")
                 )
                 
                 if resume_requirements:
@@ -618,7 +623,7 @@ def main():
                 # Extract skills from resume
                 resume_skills = extract_skills_from_resume(
                     custom_resume_file,
-                    "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"
+                    os.getenv("OPENAI_API_KEY")
                 )
                 
                 if resume_skills and job_reqs:
