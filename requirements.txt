@@ -9,3 +9,4 @@ tqdm
 plotly.express
 scipy
 scikit-learn
+python-dotenv
