@@ -1,0 +1,11 @@
+streamlit
+pandas
+pdfplumber
+openai
+plotly
+wordcloud
+matplotlib
+tqdm
+plotly.express
+scipy
+scikit-learn
